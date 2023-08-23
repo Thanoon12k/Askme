@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/home.dart';
+import 'package:flutter_app/welcomepage.dart';
 import 'package:get/get.dart';
 //canva site 
 //https://www.canva.com/design/DAFsKFWnrOI/WDduDV-PSPEzuxMEzjasuQ/edit
@@ -12,10 +12,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-  
+
    return const GetMaterialApp(
+    textDirection: TextDirection.rtl,
     debugShowCheckedModeBanner: false,
-  home: Home(),
+  home: WelcomePage(),
 );
   }
 }
