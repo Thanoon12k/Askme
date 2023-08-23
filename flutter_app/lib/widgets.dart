@@ -37,50 +37,6 @@ class TitleText extends StatelessWidget {
   }
 }
 
-class StyledButton extends StatelessWidget {
-  final VoidCallback onPressed;
-  final String text;
-
-  const StyledButton({super.key, required this.onPressed, required this.text});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(30.0), // Rounded corners
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.2),
-            offset: const Offset(0, 5),
-            blurRadius: 10.0,
-            spreadRadius: 1.0,
-          ), // Shadow settings
-        ],
-        gradient: const LinearGradient(
-          colors: [Colors.blueAccent, Colors.purpleAccent],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ), // Gradient color
-      ),
-      child: ElevatedButton(
-        onPressed: onPressed,
-        style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.transparent,
-          shadowColor: Colors.transparent,
-          padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 15.0),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30.0),
-          ), // Match the borderRadius with the BoxDecoration
-        ),
-        child: Text(
-          text,
-          style: const TextStyle(fontFamily: "Montasserate", fontSize: 24),
-        ),
-      ),
-    );
-  }
-}
-
 class QuestionCircle extends StatelessWidget {
  const QuestionCircle({
   super.key});

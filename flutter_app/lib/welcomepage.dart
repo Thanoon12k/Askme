@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/buttons.dart';
 import 'package:flutter_app/chatpage.dart';
 import 'package:flutter_app/widgets.dart';
 import 'package:get/get.dart';
@@ -35,7 +36,7 @@ class WelcomePage extends StatelessWidget {
  const SizedBox(height: 40),
  TitleText(text:"استمتع بوقتك معي",size: 36, width: FontWeight.w300,right: screenWidth*0.2),
 SizedBox(height: screenHeight*0.4),
-Center(child: StyledButton(onPressed: ()=>Get.to( ChatPage()), text: "هيا لنبدأ")) 
+Center(child: GradientStyledButton(onPressed: ()=>Get.to(()=>const ChatPage()), text: "هيا لنبدأ")) 
  
  ],),
 
