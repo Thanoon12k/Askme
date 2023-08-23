@@ -62,6 +62,12 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "get",
+      "rootUri": "file:///C:/Users/mohsal/AppData/Local/Pub/Cache/hosted/pub.dev/get-4.6.5",
+      "packageUri": "lib/",
+      "languageVersion": "2.15"
+    },
+    {
       "name": "lints",
       "rootUri": "file:///C:/Users/mohsal/AppData/Local/Pub/Cache/hosted/pub.dev/lints-2.1.1",
       "packageUri": "lib/",
@@ -152,7 +158,7 @@
       "languageVersion": "3.1"
     }
   ],
-  "generated": "2023-08-22T09:13:21.452798Z",
+  "generated": "2023-08-22T14:53:27.014237Z",
   "generator": "pub",
   "generatorVersion": "3.1.0"
 }
