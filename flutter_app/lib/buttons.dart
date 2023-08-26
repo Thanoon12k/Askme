@@ -1,46 +1,6 @@
 
 import 'package:flutter/material.dart';
 
-class MicIconButton extends StatelessWidget {
-  final VoidCallback onPressed;
-
-  const MicIconButton({super.key, required this.onPressed});
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onPressed,
-      child: Container(
-        width: 70,
-        height: 70,
-        decoration: BoxDecoration(
-          gradient: const LinearGradient(
-            colors: [Colors.blue, Colors.purple],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-          boxShadow: const [
-            BoxShadow(
-              color: Colors.black26,
-              blurRadius: 10,
-              offset: Offset(0, 5),
-            ),
-          ],
-          borderRadius: BorderRadius.circular(15),
-        ),
-        child: const Center(
-          child: Icon(
-            Icons.mic,
-            color: Colors.white,
-            size: 40,
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-
 class DarkMicIconButton extends StatelessWidget {
   final VoidCallback onPressed;
 
@@ -48,11 +8,11 @@ class DarkMicIconButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onPressed,
+    return Align(
+      alignment: Alignment.center, // Ensure the child widget remains centered.
       child: Container(
-        width: 65,
-        height: 65,
+        width: 50,
+        height: 50,
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [Colors.black, Colors.grey[800]!],
@@ -74,11 +34,14 @@ class DarkMicIconButton extends StatelessWidget {
           ],
           borderRadius: BorderRadius.circular(20),
         ),
-        child: const Center(
-          child: Icon(
-            Icons.mic,
-            color: Colors.white70,
-            size: 45,
+        child: GestureDetector(
+          onTap: onPressed,
+          child: const Center(
+            child: Icon(
+              Icons.mic,
+              color: Colors.white70,
+              size: 31,
+            ),
           ),
         ),
       ),
@@ -86,50 +49,127 @@ class DarkMicIconButton extends StatelessWidget {
   }
 }
 
-class BlueMicIconButton extends StatelessWidget {
+
+class RecordIconButton extends StatelessWidget {
   final VoidCallback onPressed;
 
-  const BlueMicIconButton({Key? key, required this.onPressed}) : super(key: key);
+  const RecordIconButton({Key? key, required this.onPressed}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onPressed,
+    return Align(
+      alignment: Alignment.center, // Ensure the child widget remains centered.
       child: Container(
-        width: 75,
-        height: 75,
+        width: 50,
+        height: 50,
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [Colors.blue[800]!, Colors.blue[400]!],
+            colors: [Colors.black, Colors.grey[800]!],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
-              color: Colors.blue[700]!.withOpacity(0.5),
-              blurRadius: 10,
-              offset: const Offset(0, 5),
+              color: Colors.black45,
+              blurRadius: 15,
+              offset: Offset(0, 8),
             ),
             BoxShadow(
-              color: Colors.blue[200]!,
-              blurRadius: 10,
-              offset: const Offset(0, -2),
-              spreadRadius: -6.0,
+              color: Colors.black87,
+              blurRadius: 15,
+              offset: Offset(0, -2),
+              spreadRadius: -12.0,
             ),
           ],
           borderRadius: BorderRadius.circular(20),
         ),
-        child: Center(
-          child: Icon(
-            Icons.mic,
-            color: Colors.white.withOpacity(0.85),
-            size: 45,
+        child: GestureDetector(
+          onTap: onPressed,
+          child: const Center(
+            child: Icon(
+              Icons.mic,
+              color: Color.fromARGB(255, 255, 0, 0),
+              size: 31,
+            ),
           ),
         ),
       ),
     );
   }
 }
+class SendIconButton extends StatelessWidget {
+  final VoidCallback onPressed;
+
+  const SendIconButton({Key? key, required this.onPressed}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.center, // Ensure the child widget remains centered.
+      child: Container(
+        width: 50,
+        height: 50,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.black, Colors.grey[800]!],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+          boxShadow: const [
+            BoxShadow(
+              color: Colors.black45,
+              blurRadius: 15,
+              offset: Offset(0, 8),
+            ),
+            BoxShadow(
+              color: Colors.black87,
+              blurRadius: 15,
+              offset: Offset(0, -2),
+              spreadRadius: -12.0,
+            ),
+          ],
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: GestureDetector(
+          onTap: onPressed,
+          child: const Center(
+            child: Icon(
+              Icons.send,
+              color: Colors.grey,
+              size: 31,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+class NotConnectedButton extends StatelessWidget {
+  final VoidCallback onPressed;
+
+  const NotConnectedButton({Key? key, required this.onPressed}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.center, // Ensure the child widget remains centered.
+      child: GestureDetector(
+          onTap: onPressed,
+          child: const Center(
+            child: Icon(
+              Icons.signal_wifi_connected_no_internet_4,
+              color: Color.fromARGB(255, 77, 65, 65),
+              size: 65,
+            ),
+          ),
+        ),
+    
+    );
+  }
+}
+
 class OrangeMicIconButton extends StatelessWidget {
   final VoidCallback onPressed;
 
@@ -161,7 +201,7 @@ class OrangeMicIconButton extends StatelessWidget {
           child: Icon(
             Icons.mic,
             color: Colors.white.withOpacity(0.9),
-            size: 45,
+            size: 31,
           ),
         ),
       ),
@@ -325,7 +365,7 @@ class TealMicIconButton extends StatelessWidget {
           ),
           boxShadow: [
             BoxShadow(
-              color: Color(0xFF0D2C2D).withOpacity(0.5),
+              color: const Color(0xFF0D2C2D).withOpacity(0.5),
               blurRadius: 10,
               offset: const Offset(0, 5),
             ),
@@ -336,9 +376,33 @@ class TealMicIconButton extends StatelessWidget {
           child: Icon(
             Icons.mic,
             color: Colors.white.withOpacity(0.9),
-            size: 45,
+            size: 31,
           ),
         ),
+      ),
+    );
+  }
+}
+
+class AwesomeButton extends StatelessWidget {
+  final VoidCallback? onPressed;
+  final String text;
+
+  const AwesomeButton({super.key, required this.text, this.onPressed});
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: onPressed,
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.blue,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30.0),
+        ),
+      ),
+      child: Text(
+        text,
+        style: const TextStyle(color: Colors.white),
       ),
     );
   }

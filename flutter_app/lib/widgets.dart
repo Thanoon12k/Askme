@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class TitleText extends StatelessWidget {
   final String text;
@@ -86,7 +87,8 @@ class QuestionCircle extends StatelessWidget {
 
 class QuestionRectangle extends StatelessWidget {
   final String text;
-  const QuestionRectangle({required this.text, Key? key}) : super(key: key);
+  final Color  label_color;
+   QuestionRectangle({required this.text,this.label_color=Colors.amber, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -113,13 +115,7 @@ class QuestionRectangle extends StatelessWidget {
             fontSize: 16.0,
             color: Color.fromARGB(255, 0, 0, 0),
             fontWeight: FontWeight.bold,
-            shadows: <Shadow>[
-              Shadow(
-                offset: Offset(2.0, 2.0),
-                blurRadius: 3.0,
-                color: Color.fromARGB(96, 207, 194, 194),
-              ),
-            ],
+            
           ),
         ),
       ),
@@ -141,6 +137,129 @@ class QuestionRow extends StatelessWidget {
        const SizedBox(width: 15),  // Gap between circle and rectangle
         QuestionRectangle(text: questionText),
       ],
+    );
+  }
+}
+
+
+class QuestionArea extends StatelessWidget {
+  final TextEditingController question_text_controller;
+
+  const QuestionArea({Key? key, required this.question_text_controller}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    
+    double screenWidth = MediaQuery.of(context).size.width;
+
+    return Align(
+      alignment: Alignment.center,
+      child: Container(
+        width: screenWidth - 80,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.black, Colors.grey[800]!],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+          boxShadow: const [
+            BoxShadow(
+              color: Colors.black45,
+              blurRadius: 15,
+              offset: Offset(0, 8),
+            ),
+            BoxShadow(
+              color: Colors.black87,
+              blurRadius: 15,
+              offset: Offset(0, -2),
+              spreadRadius: -12.0,
+            ),
+          ],
+          borderRadius: BorderRadius.circular(20),
+        ),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        child: Scrollbar(
+          thumbVisibility: true,
+          child: SingleChildScrollView(
+            child: TextField(
+              controller: question_text_controller,
+              style: const TextStyle(
+                color: Colors.white70,
+                fontSize: 16,
+              ),
+              cursorColor: Colors.white70,
+              maxLines: 8, // This allows multiple lines
+              decoration: const InputDecoration(
+                contentPadding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                border: InputBorder.none,
+                hintText: "Enter your question or use Microphone",
+                hintStyle: TextStyle(color: Colors.white38),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+class AnswerArea extends StatelessWidget {
+  final String answer;
+
+  const AnswerArea({Key? key, required this.answer}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    
+    double screenWidth = MediaQuery.of(context).size.width;
+
+    return Align(
+      alignment: Alignment.center,
+      child: Container(
+        width: screenWidth - 20,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [const Color.fromARGB(255, 39, 37, 37), Colors.grey[800]!],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+          boxShadow: const [
+            BoxShadow(
+              color: Color.fromARGB(115, 97, 84, 84),
+              blurRadius: 15,
+              offset: Offset(0, 8),
+            ),
+            BoxShadow(
+              color: Colors.black87,
+              blurRadius: 15,
+              offset: Offset(0, -2),
+              spreadRadius: -12.0,
+            ),
+          ],
+          borderRadius: BorderRadius.circular(20),
+        ),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        child: Scrollbar(
+         
+          child: SingleChildScrollView(
+            child: Container(
+              alignment: Alignment.center,
+              padding: EdgeInsets.all(10),
+              child: Text(
+                textAlign: TextAlign.center,
+                textDirection: TextDirection.ltr,
+               answer,
+                style: const TextStyle(
+                  color: Color.fromARGB(255, 255, 255, 255),
+                  fontSize: 16,
+                ),
+              
+              ),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
